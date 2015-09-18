@@ -1,0 +1,37 @@
+SSN,lname,fname,hname,address,city,state,zip,country,tel,dob,mstatus,dmarri,ddate1,ddate2,ddate3,dateleft,Semester_Withdrew,MidSem_Withdrew,branch,notescomments,ExpectedCompletionDate,UpdatesforECD
+312-00-9210,Abadi,Shmuel C.,Dovid,5 Hello Way,Lakewood,NJ,08701,,(101)740-7892,5/13/1997,,,,,,,,N,0,,202001,
+039-23-2932,Abramov,Samuel,,10 Eighth Street,Lakewood,NJ,08701,,(132)523-0940,7/31/1996,,,,,,,,N,0,,,
+390-92-9931,Bak,Yisroel M,,13 Raymond Avenue,Dallas,TX,54355,,(161)278-1424,9/9/1994,,,,,,,,N,0,,05/2017,07/2018
+313-93-1109,Bak,Nathan,,10 West Maple Avenue,Lakewood,NJ,08701,,(248)967-4741,11/7/1994,,,,,,7/16/2015,SU15,E,0,,06/2016,07/2019
+311-09-3190,Bak,Tzvi,,10 Fourteenth Street,Lakewood,NJ,08701,,(139)525-9818,7/7/1997,,,,,,,,N,0,Hello: added this comment,,
+129-11-3330,Ben-Moshe,Yisrael Eliyahu,,107 Collinson Boulevard,Lakewood,NJ,08701,,(305)531-3158,1/27/1994,1,10/14/2007,,,,,,N,1,,05/2017,01/2018
+399-09-3003,Goldstein,Mordechai,,13 Raymond Avenue,Lakewood,NJ,08701,,(718)253-4543,10/4/1997,,,,,,7/10/2015,,N,0,,202001,
+203-92-3112,Goldstein,Meir Simcha,,1304 East Seventh Street,Valley Village,CA,91607,,(718)253-8874,9/25/1995,,,,,,,,N,0,,,
+311-92-0203,Kanarek,Yehoshua,,1574 East Seventh Street,Lakewood,NJ,08701,,(718)868-1593,03/11/96,,,,,,07/16/15,SU15,E,0,,,
+330-00-2390,Kanarek,Moshe T.,Shloimie,16 New Hill Road,Beverly Hills,CA,90211,,(718)868-2536,07/29/96,,,,,,,,N,0,,122019,
+313-00-1023,Kanarek,Yehuda Aryeh,,1637 East Third Street,Spring Valley,NY,10977,,(718)868-8674,04/11/97,,,,,,,,N,0,,202001,
+393-00-1231,Kaufman,Yisrael,,1676 57th Street,Lakewood,NJ,08701,,(718)998-2295,07/17/96,,,,,,,,N,0,'Doesn''t have a mother,122019,
+022-23-3390,Kaufman,Shaul,,1693 New Central Avenue,Brooklyn,NY,11214,,(718)998-9759,04/11/96,,,,,,,,N,0,,01/2018,
+312-92-1901,Landau,Yosef Chaim,,206 5th Street,Lakewood,NJ,08701,,(732)364-1241,10/07/95,,,,,,07/16/15,SU15,E,0,,05/2017,
+309-29-1910,Landau,Michoel,,211 Loch Avenue,Brooklyn,NY,11223,,(732)364-2973,09/24/95,,,,,,,,N,0,'He doesn''t have a proper HS Diploma, HS won''t give it unless he does work to complete requirements. Told this to Rabbi Gewirtzman. Meanwhile we cannot pay him. (ATB 60) ',01/2017
+032-20-2193,Langer,Jacob,,2131 84th Street,Brooklyn,NY,11218,,(732)364-2973,03/29/93,,,,,,03/23/15,SP15,E,0,,12/2015,
+332-12-3329,Levi,Yeshaya,Yosef Y.,24730 Sussex Street,Far Rockaway,NY,11691,,(732)364-9814,10/05/97,,,,,,,,N,0,,202001,
+323-00-2939,Levi,Yehudah,,24730 Sussex Street,Lakewood,NJ,08701,,(732)364-9814,07/01/96,,,,,,02/23/15,SP15,E,0,,01/2018,
+999-99-0332,Levi,Mordechai,Bunim,26 East Ninth Street,Toronto,ON,M5M2Z2,Canada,(732)367-1620,09/27/96,,,,,,,,N,0,,122019,
+313-00-0291,Levine,Moshe,,292 7th Street,Pittsburgh,PA,15217,,(732)367-1810,04/03/96,,,,,,,,N,0,,05/2017,
+391-99-3032,Modes,Shamai,,38 Dena Court,Lakewood,NJ,08701,,(732)370-5674,03/31/93,,,,,,03/23/15,SP15,E,0,,12/2015,
+393-00-9210,Modes,Saul,,38 Dena Court,Lakewood,NJ,08701,,(732)370-7998,02/01/97,,,,,,,,N,0,,202001,
+090-23-2112,Neiman,Yochanan Boruch,,38 Sunset Road,Brooklyn,NY,11230,,(732)370-8399,09/22/95,,,,,,,,N,0,,05/2017,
+019-23-9232,Schwartz,Yisroel Eliezer,,52 Shelborne Avenue,Staten Island,NY,10309,,(732)901-7814,04/15/94,,,,,,,,N,1,,06/2016,
+390-92-3392,Schwartz,Moshe,Dovi,54 Briarcliff Drive,Lakewood,NJ,08701,,(732)901-7814,04/30/95,,,,,,07/16/15,SU15,E,0,,05/2017,
+013-29-3201,Segan-Kohanim,Shmuel,,54 Stormont Ave,Brooklyn,NY,11214,,(732)901-9677,01/10/94,,,,,,,,N,0,,06/2016,
+303-29-1299,Shapiro,Nosson Zalman,Yaakov Yitzchak,5907 Hobart Street,Cedarhurst,NY,11516,,(732)905-2720,7/29/1995,,,,,,,,N,0,,05/2017,
+390-09-1131,Shapiro,Asher Levi,,6 Talbot Avenue,Lakewood,NJ,08701,,(732)905-7279,5/1/1997,,,,,,,,N,0,,202001,
+013-22-1929,Shapiro,Shmuel,,6041 North Lawndale Avenue,Spring Valley,NY,10977,,(732)905-7279,5/11/1995,,,,,,3/23/2015,SP15,E,0,'Really a regents student, provisional for SP13 and should have a Regents diplooma 6/20/2013. His Regents transcripts were lost so I changed his forms back to match the Mesivta diploma for an AARTS review. H.E.',05/2017
+312-92-2302,Shapiro,Moshe C.,,61 Bates Drive,Lakewood,NJ,08701,,(732)905-9573,10/9/1995,,,,,,,,N,0,,05/2017,
+993-32-9290,Silberstein,Yisroel,Yitzchok,626 14th Street,St. Louis,MO,63132,,(773)539-4728,1/31/1996,,,,,,,,N,0,,202001,
+320-29-0133,Stefansky,Shmuel,,697 N Alta Vista Boulevard,Brooklyn,NY,11210,,(818)760-7895,05/13/96,,,,,,,,N,0,,01/2018,
+309-23-9202,Stefansky,Isaac Meir,,72 Carey Street,Far Rockaway,NY,11691,,(845)352-0410,02/14/97,,,,,,,,N,0,,01/2018,
+301-29-2299,Steinfeld,Eliyahu,,7902 21st Avenue,Monsey,NY,10952,,(845)354-0065,05/20/94,,,,,,,,N,0,,06/2016,
+301-29-9103,Wohlgelernter,David,,912 Park Terrace,Far Rockaway,NY,11691,,(973)471-2012,1/31/1996,,,,,,,,N,0,,01/2018,
+310-93-3009,Zabrowsky,Tzvi Yisroel,,936 Park Terrace,West Long Branch,NJ,7764,,(973)473-7344,9/1/1994,,,,,,,,N,0,,06/2016,
