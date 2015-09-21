@@ -19,7 +19,7 @@ class Import_school {
 
     $datacount = 0;
     //read data from file
-    @$handle = fopen("sample_info.csv", "r");
+    @$handle = fopen("tester2.csv", "r");
     $start = microtime(true);
     while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
       if($datacount ==0){ //this is the header
@@ -129,7 +129,7 @@ class Import_school {
       print_r($adjstudentdata);
       echo '<br>';
       echo microtime(true) - $start;
-      echo '<br>';
+      echo '<br> . <br>';
       unset($data);
       $datacount++;
     }
@@ -148,7 +148,7 @@ class Import_school {
       echo '<br>';
     }
     echo '<br> Flagged for suspicious data:';
-    echo '<br>' . '<br>';
+    echo '<br> . <br>';
     foreach ($flagged as $flg) {
       print_r($flg);
       echo '<br>';
@@ -163,7 +163,6 @@ class Import_school {
     $sth->execute();
     //get the idaddress if it exists
     $id = $sth->fetchColumn();
-    echo '<br>';
     print_r('got it ' . $id);
     return $id;
   }
@@ -187,16 +186,37 @@ class Import_school {
           // there is a match for both, just update record
           echo '<br>';
           print_r('record found for '); print_r($result);
-          echo '<br>';
+          echo ' stopped checking <br>';
           $changed = $this->update($result, $student);
           return $changed;
-        } else if ($result['stdnt_last_name'] == $student[1] || $result['stdnt_ss'] == $student[0]){
-          //there is a match for SS or name, but not both, ask user to proceed
         }
       }
-      echo '<br>';
-      print_r('Never found a full match, ask user');
-      echo '<br>';
+      echo 'No exact match found, keep checking! <br>';
+      foreach ($results as $result) {
+        if ($result['stdnt_last_name'] == $student[1] && $result['stdnt_ss'] !== $student[0]){
+          //there is a match for name, but not SS, confirm this to be a new student by checking DOB
+          $sth = $dbh->prepare('SELECT stdnt_dob FROM student WHERE stdnt_last_name = :stdnt_last_name AND stdnt_first_name = :stdnt_first_name');
+          $sth->bindParam(':stdnt_last_name', $student[1]);
+          $sth->bindParam(':stdnt_first_name', $student[2]);
+          $sth->execute();
+          $checkDob = $sth->fetchColumn();
+          if($checkDob === $student[7]){
+            //if we got somthing back, this user exists, and the SSN is an error
+            echo '<br>'; print_r($checkDob);
+            echo ' birthday matches for this name  <br>';
+            echo ' SSN error <br>';
+          } else {
+            // this is a new student, just insert into DB
+            echo '<br>'; print_r($checkDob);
+            echo ' birthday checked, new student <br>';
+            return false;
+          }
+        } else if ($result['stdnt_last_name'] != $student[1] && $result['stdnt_ss'] == $student[0]){
+          //there is a match for SS, but not name, this is an error
+          echo ' Duplicate SSN, error <br>';
+        }
+      }
+      //Flag all errors that fell thru till here
       $flagged[] = $results;
       return true;
     }
@@ -282,11 +302,11 @@ class Import_school {
   private function invalidDate($dates, $row){
     foreach($dates as $date){
       print_r($date);
-      echo 'hello <br>';
+      echo ' date checked <br>';
       //confirm that date is numerical, and is not the default unix timestamp
       if((!preg_match('/^[0-9].+/', $date)) || ($date === '1970-01-01')){
         print_r($date);
-        echo 'hello <br>';
+        echo ' date failed <br>';
         return true;
       }
     }
