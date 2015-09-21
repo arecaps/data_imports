@@ -1,25 +1,25 @@
 <?php
 
-class Import_school {
+class Import_students {
 
-    //save data to return to the user
-    private $updated = [];
-    private $rejected = [];
-    private $flagged = [];
+  //save data to return to the user
+  private $updated = [];
+  private $rejected = [];
+  private $flagged = [];
 
   function save_students() {
 
     $dates = [];
-    global  $updated,
-    $rejected,
-    $flagged;
+    global $updated,
+           $rejected,
+           $flagged;
 
     include_once 'database.php';
     $dbh = $database->create_dbh();
 
     $datacount = 0;
     //read data from file
-    @$handle = fopen("sample_info.csv", "r");
+    @$handle = fopen("tester2.csv", "r");
     while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
       if($datacount ==0){ //this is the header
         $this->verifyData($data);
@@ -91,7 +91,7 @@ class Import_school {
             print_r($sth->errorInfo());
           }
         } else if($update == 1){
-          //Existing student with no changes, do nothing
+          //Existing student with no changes, or error, do nothing
         } else {
           //there are changes, loop through them and update them
           foreach ($update as $fix) {
@@ -112,7 +112,7 @@ class Import_school {
         $dbh->commit();
       } catch (Exception $e) {
         $dbh->rollBack();
-        echo "Failed: " . $e->getMessage();
+        echo 'Failed: ' . $e->getMessage();
       }
       unset($data);
       $datacount++;
@@ -169,10 +169,28 @@ class Import_school {
           // there is a match for both, just update record
           $changed = $this->update($result, $student);
           return $changed;
-        } else if ($result['stdnt_last_name'] == $student[1] || $result['stdnt_ss'] == $student[0]){
-          //there is a match for SS or name, but not both, ask user to proceed
         }
       }
+      //If there is no exact match do furter checking
+      foreach ($results as $result) {
+        if ($result['stdnt_last_name'] == $student[1] && $result['stdnt_ss'] !== $student[0]){
+          //there is a match for name, but not SS, confirm this to be a new student by checking DOB
+          $sth = $dbh->prepare('SELECT stdnt_dob FROM student WHERE stdnt_last_name = :stdnt_last_name AND stdnt_first_name = :stdnt_first_name');
+          $sth->bindParam(':stdnt_last_name', $student[1]);
+          $sth->bindParam(':stdnt_first_name', $student[2]);
+          $sth->execute();
+          $checkDob = $sth->fetchColumn();
+          if($checkDob === $student[7]){
+            // if dob matches name, there is an error in the SSN, flag and do not insert
+          } else {
+            // this is a new student, not an update, just insert into DB
+            return false;
+          }
+        } else if ($result['stdnt_last_name'] != $student[1] && $result['stdnt_ss'] == $student[0]){
+          //there is a match for SS, but not name, this is an error, flag and do not insert
+        }
+      }
+      //Flag all errors that fell thru till here
       $flagged[] = $results;
       return true;
     }
@@ -262,6 +280,6 @@ class Import_school {
   }
 
 }
-$save_student = new Import_school();
+$save_student = new Import_students();
 $save_student->save_students();
 ?>

@@ -1,25 +1,25 @@
 <?php
 
-class Import_school {
+class Import_students {
 
-    //save data to return to the user
-    private $updated = [];
-    private $rejected = [];
-    private $flagged = [];
+  //save data to return to the user
+  private $updated = [];
+  private $rejected = [];
+  private $flagged = [];
 
   function save_students() {
 
     $dates = [];
-    global  $updated,
-    $rejected,
-    $flagged;
+    global $updated,
+           $rejected,
+           $flagged;
 
     include_once 'database.php';
     $dbh = $database->create_dbh();
 
     $datacount = 0;
     //read data from file
-    @$handle = fopen("tester2.csv", "r");
+    @$handle = fopen("tester.csv", "r");
     $start = microtime(true);
     while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
       if($datacount ==0){ //this is the header
@@ -53,7 +53,7 @@ class Import_school {
         $dates[] = $graddate = $data[22];
       } else if($data[21]){
         $dates[] = $graddate = $data[21];
-      }else {
+      } else {
       $graddate = NULL;
       }
       //check if dates are valid
@@ -299,6 +299,7 @@ class Import_school {
       trigger_error("Incompatable file layout", E_USER_ERROR);
     }
   }
+
   private function invalidDate($dates, $row){
     foreach($dates as $date){
       print_r($date);
@@ -306,7 +307,7 @@ class Import_school {
       //confirm that date is numerical, and is not the default unix timestamp
       if((!preg_match('/^[0-9].+/', $date)) || ($date === '1970-01-01')){
         print_r($date);
-        echo ' date failed <br>';
+        echo ' date failed <br> . <br>';
         return true;
       }
     }
@@ -314,6 +315,6 @@ class Import_school {
   }
 
 }
-$save_student = new Import_school();
+$save_student = new Import_students();
 $save_student->save_students();
 ?>
